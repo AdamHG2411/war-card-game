@@ -1,0 +1,43 @@
+p {
+  color: lightskyblue;
+}
+
+body {
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    justify-content: space-around;
+    .stack {
+      height: 300px;
+      width: 200px;
+      border: 1px solid black;
+      border-radius: 20px;
+      background: teal;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 30px;
+      display: flex;
+      flex-direction: column;
+    }
+    .inPlay {
+      height: 300px;
+      width: 200px;
+      border: 1px solid black;
+      border-radius: 20px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 30px;
+      display: flex;
+      flex-direction: column;
+      p {
+        color: teal;
+      }
+    }
+    #makeWar {
+      #warButton {
+        margin: 140px auto;
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title Document
+    link(rel="stylesheet" type="text/css" href="../sass/main.scss")
+    script(src="../js/main.js" defer)
+  body
+    .wrapper
+      .stack#player1Stack
+        p Cards:
+        p#player1StackSize ERR
+      .inPlay#player1InPlay
+        p#player1Rank ERR
+        img#player1Suit(src="#")
+      #makeWar
+        button#warButton(type="button") War!
+      .inPlay#player2InPlay
+        p#player2Rank ERR
+        img#player2Suit(src="#")
+      .stack#player2Stack
+        p Cards:
+        p#player2StackSize ERR
