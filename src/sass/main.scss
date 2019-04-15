@@ -30,19 +30,20 @@ body {
       font-size: 30px;
       display: flex;
       flex-direction: column;
+      .hearts {
+        background-image: src('../img/hearts.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
       p {
         color: teal;
       }
-      img {
-        margin: 0 auto;
-        height: 40px;
-        width: auto;
-      }
     }
     #makeWar {
-      #warButton {
-        margin: 140px auto;
-      }
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
     }
   }
 }
