@@ -1,17 +1,15 @@
 let player1StackSize = document.querySelector('#player1StackSize')
 let player1InPlay = document.querySelector ('#player1InPlay')
-let player1Suit = document.querySelector('#player1Suit')
+let player1Suit = document.querySelector('#player1Suit div')
 let player1Rank = document.querySelector('#player1Rank')
 let player2StackSize = document.querySelector('#player2StackSize')
 let player2InPlay = document.querySelector('#player2InPlay')
-let player2Suit = document.querySelector('#player2Suit')
+let player2Suit = document.querySelector('#player2Suit div')
 let player2Rank = document.querySelector('#player2Rank')
-let suitPath = "../hearts.png"
 
 class Card {
-  constructor(suit,suitPath,rank,score) {
+  constructor(suit,rank,score) {
     this.suit = suit
-    this.suitPath = suitPath
     this.rank = rank
     this.score = score
   }
@@ -20,8 +18,7 @@ class Deck {
   constructor() {
     this.quant = 52
     this.deck = []
-    this.suits = ["Hearts", "Diamonds", "Clubs", "Spades"]
-    this.suitPaths = ['../img/hearts.png', '../img/diamonds.png', '../img/clubs.png', '../img/spades.png']
+    this.suits = ["hearts", "diamonds", "clubs", "spades"]
     this.ranks = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"]
     this.scores = [2,3,4,5,6,7,8,9,10,11,12,13,14]
   }
@@ -29,7 +26,7 @@ class Deck {
     this.deck = [];
     for (let i = 0; i < 4; i++) {
       for (let j = 0; j < 13; j++) {
-        this.deck.push(new Card(this.suits[i], this.suitPaths[i],this.ranks[j], this.scores[j]))
+        this.deck.push(new Card(this.suits[i],this.ranks[j], this.scores[j]))
       }
     }
     let currentIndex = this.deck.length, tempValue, randomIndex;
@@ -54,12 +51,12 @@ class Deck {
 }
 
 class Player {
-  constructor(name, rankText, suitImg) {
+  constructor(name, rankText, suitInPlay) {
     this.name = name
     this.stack = [];
     this.inPlay = [];
     this.rankText = rankText
-    this.suitImg = suitImg
+    this.suitInPlay = suitInPlay
   }
   takeHalf(obj) {
     for (i = 0; i < 26; i++) {
@@ -70,20 +67,12 @@ class Player {
   play(evt) {
     evt.preventDefault()
     this.inPlay.push(this.stack.shift())
+    console.log(this.inPlay[0])
     this.rankText.innerHTML = this.inPlay[0].rank
-    // if (this.inPlay[0].suit === "hearts") {
-    //   suitPath = '../img/hearts.png'
-    // } else if (this.inPlay[0].suit === "diamonds") {
-    //   suitPath = '#'
-    // } else if (this.inPlay[0].suit === "spades") {
-    //   suitPath = '#'
-    // } else if (this.inPlay[0].suit === "clubs") {
-    //   suitPath = '#'
-    // } else {
-    //   suitPath = '../img/hearts.png'
-    // }
-    this.suitImg.setAttribute('src',this.inPlay[0].suitPath)
-    console.log(this.suitImg)
+    this.suitInPlay.removeAttribute('class')
+    this.suitInPlay.setAttribute('class', `${this.inPlay[0].suit}`)
+    console.log(this.suitInPlay)
+    //this.inPlay[0].setAttribute('class',this.inPlay[0].suit)
     player1StackSize.innerHTML = `${player1.stack.length}`
     player2StackSize.innerHTML = `${player2.stack.length}`
     console.log(`${this.name} played the ${this.inPlay[0].rank} of ${this.inPlay[0].suit}`)

@@ -34,10 +34,24 @@ body {
         color: teal;
       }
       .suit {
-        background-image: url('../img/hearts.png');
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+        .none {
+          background-image: url('../img/hearts.png');
+        }
+        .hearts {
+          background-image: url('../img/hearts.png')
+        }
+        .diamonds {
+          background-image: url('../img/diamonds.png')
+        }
+        .spades {
+          background-image: url('../img/spades.png')
+        }
+        .clubs {
+          background-image: url('../img/clubs.png')
+        }
       }
     }
     #makeWar {
