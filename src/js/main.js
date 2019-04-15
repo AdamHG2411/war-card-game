@@ -6,10 +6,12 @@ let player2StackSize = document.querySelector('#player2StackSize')
 let player2InPlay = document.querySelector('#player2InPlay')
 let player2Suit = document.querySelector('#player2Suit')
 let player2Rank = document.querySelector('#player2Rank')
+let suitPath = "../hearts.png"
 
 class Card {
-  constructor(suit,rank,score) {
+  constructor(suit,suitPath,rank,score) {
     this.suit = suit
+    this.suitPath = suitPath
     this.rank = rank
     this.score = score
   }
@@ -19,6 +21,7 @@ class Deck {
     this.quant = 52
     this.deck = []
     this.suits = ["Hearts", "Diamonds", "Clubs", "Spades"]
+    this.suitPaths = ['../img/hearts.png', '../img/diamonds.png', '../img/clubs.png', '../img/spades.png']
     this.ranks = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"]
     this.scores = [2,3,4,5,6,7,8,9,10,11,12,13,14]
   }
@@ -26,7 +29,7 @@ class Deck {
     this.deck = [];
     for (let i = 0; i < 4; i++) {
       for (let j = 0; j < 13; j++) {
-        this.deck.push(new Card(this.suits[i], this.ranks[j], this.scores[j]))
+        this.deck.push(new Card(this.suits[i], this.suitPaths[i],this.ranks[j], this.scores[j]))
       }
     }
     let currentIndex = this.deck.length, tempValue, randomIndex;
@@ -68,23 +71,23 @@ class Player {
     evt.preventDefault()
     this.inPlay.push(this.stack.shift())
     this.rankText.innerHTML = this.inPlay[0].rank
-    if (this.inPlay[0].suit === "hearts") {
-      suitPath = '../img/hearts.png'
-    } else if (this.inPlay[0].suit === "diamonds") {
-      suitPath = '#'
-    } else if (this.inPlay[0].suit === "spades") {
-      suitPath = '#'
-    } else if (this.inPlay[0].suit === "clubs") {
-      suitPath = '#'
-    } else {
-      suitPath = '#'
-    }
-    this.suitImg.setAttribute('src', suitPath)
+    // if (this.inPlay[0].suit === "hearts") {
+    //   suitPath = '../img/hearts.png'
+    // } else if (this.inPlay[0].suit === "diamonds") {
+    //   suitPath = '#'
+    // } else if (this.inPlay[0].suit === "spades") {
+    //   suitPath = '#'
+    // } else if (this.inPlay[0].suit === "clubs") {
+    //   suitPath = '#'
+    // } else {
+    //   suitPath = '../img/hearts.png'
+    // }
+    this.suitImg.setAttribute('src',this.inPlay[0].suitPath)
+    console.log(this.suitImg)
     player1StackSize.innerHTML = `${player1.stack.length}`
     player2StackSize.innerHTML = `${player2.stack.length}`
     console.log(`${this.name} played the ${this.inPlay[0].rank} of ${this.inPlay[0].suit}`)
   }
-    
 }
 
 function makeWar(evt) {

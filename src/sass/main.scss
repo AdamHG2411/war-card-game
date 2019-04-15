@@ -33,6 +33,12 @@ body {
       p {
         color: teal;
       }
+      .suit {
+        background-image: url('../img/hearts.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
     }
     #makeWar {
       #warButton {
