@@ -1,0 +1,49 @@
+p {
+  color: lightskyblue;
+}
+
+body .wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  justify-content: space-around;
+}
+body .wrapper .stack {
+  height: 300px;
+  width: 200px;
+  border: 1px solid black;
+  border-radius: 20px;
+  background: teal;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+}
+body .wrapper .inPlay {
+  height: 300px;
+  width: 200px;
+  border: 1px solid black;
+  border-radius: 20px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+}
+body .wrapper .inPlay .hearts {
+  background-image: src("../img/hearts.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+body .wrapper .inPlay p {
+  color: teal;
+}
+body .wrapper #makeWar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+/*# sourceMappingURL=/main.31b31d70.css.map */
