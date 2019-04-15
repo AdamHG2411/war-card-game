@@ -1,11 +1,14 @@
 let player1StackSize = document.querySelector('#player1StackSize')
 let player1InPlay = document.querySelector ('#player1InPlay')
-let player1Suit = document.querySelector('#player1Suit div')
 let player1Rank = document.querySelector('#player1Rank')
 let player2StackSize = document.querySelector('#player2StackSize')
 let player2InPlay = document.querySelector('#player2InPlay')
-let player2Suit = document.querySelector('#player2Suit div')
 let player2Rank = document.querySelector('#player2Rank')
+
+let player1Suit = document.createElement('IMG')
+player1InPlay.appendChild(player1Suit)
+let player2Suit = document.createElement('IMG')
+player2InPlay.appendChild(player2Suit)
 
 class Card {
   constructor(suit,rank,score) {
@@ -51,12 +54,12 @@ class Deck {
 }
 
 class Player {
-  constructor(name, rankText, suitInPlay) {
+  constructor(name, rankText, suitImg) {
     this.name = name
     this.stack = [];
     this.inPlay = [];
     this.rankText = rankText
-    this.suitInPlay = suitInPlay
+    this.suitImg = suitImg
   }
   takeHalf(obj) {
     for (i = 0; i < 26; i++) {
@@ -69,10 +72,7 @@ class Player {
     this.inPlay.push(this.stack.shift())
     console.log(this.inPlay[0])
     this.rankText.innerHTML = this.inPlay[0].rank
-    this.suitInPlay.removeAttribute('class')
-    this.suitInPlay.setAttribute('class', `${this.inPlay[0].suit}`)
-    console.log(this.suitInPlay)
-    //this.inPlay[0].setAttribute('class',this.inPlay[0].suit)
+    this.suitImg.src = `../img/${this.inPlay[0].suit}.png`
     player1StackSize.innerHTML = `${player1.stack.length}`
     player2StackSize.innerHTML = `${player2.stack.length}`
     console.log(`${this.name} played the ${this.inPlay[0].rank} of ${this.inPlay[0].suit}`)
